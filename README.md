@@ -50,6 +50,6 @@ STEP2: `npm start`
 And we are done, Now your react app will be running on `8001` and node js App will be running on `8000`.
 
 
-Documentation and some other stuff is still pending... Working on it.
-This repo is currently on development for initial requirements. Open for getting any contribution. Thanks!! 
+### Documentation and some other stuff is still pending... Working on it.
+### This repo is currently on development for initial requirements. Open for getting any contribution. Thanks!!
 
