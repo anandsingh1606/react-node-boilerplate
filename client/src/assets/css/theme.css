@@ -1,0 +1,9 @@
+body {
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    display: flex;
+
+    /* Direction of the items, can be row or column */
+    flex-direction: column;
+}

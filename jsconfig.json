@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "allowSyntheticDefaultImports": false,
+    "baseUrl": "./",
+    "paths": {
+      "Modules/*": ["./server/src/modules/*"],
+      "Root/*": ["./server/src/*"],
+      "Utils/*": ["./server/src/utils/*"],
+      "Models/*": ["./server/src/models/*"],
+      "Db/*": ["./server/src/config]/database.js"],
+      "Config/*": [".server/src/config/*"],
+      "Validations/*": ["./server/src/validations/*"],
+      "Middleware/*": ["./server/src/middleware/*"],
+      "Constants/*": ["./server/src/constants/*"],
+      "Locales/*": ["./server/src/locales/*"],
+      "ThemeAssets/*": ["./client/src/assets/theme/react-material/*"],
+      "ThemeComponents/*": ["./client/src/components/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}

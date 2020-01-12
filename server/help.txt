@@ -1,0 +1,21 @@
+# Folder Structure
+1) We are managing module based folder structure.
+2) `/modules` will have all module folders. Every module will have `**.controller.js`, `**.routes.js`, `**.service.js`, `**.validation.js`.
+3) All models will be inside `/models` folder.
+
+# Routing Pattern
+1) All open end points will have `/api` prefix.
+2) We are combining all module routes in `/routes.js`.
+3) All module routes will be in their module folder.
+4) For smile and clear import url we are using `module-alias` module.
+
+# Validation
+1) All field(name, password , email, etc) validation rules are written in `/validations/validation-field-rules.js`. 
+2) `validationHandler` HOF takes these rules and call each one by one, These are actually middleware, If error then return from that point and if success move to controller. 
+3) We are using `express-validation` for data/field validation (https://express-validator.github.io/docs/)
+
+# Sanitization
+
+
+# Database
+1) We are using sequelize(https://sequelize.org/) ORM for database interaction

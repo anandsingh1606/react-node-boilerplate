@@ -1,0 +1,27 @@
+{
+  "name": "react-node-boilerplate",
+  "version": "1.0.0",
+  "description": "A simple, scalable and full featured react-node boilerplate",
+  "main": "",
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^5.0.2"
+  },
+  "scripts": {
+    "install": "(cd client && npm install) && (echo ==================Client Install Complete==========================) && (cd server && npm install)",
+    "start": "concurrently \"cd client && npm run start:dev\"  \"cd server && npm start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://anand_parihar@bitbucket.org/anand_parihar/ollgood.git"
+  },
+  "keywords": [
+    "react",
+    "node",
+    "hooks",
+    "boilerplate"
+  ],
+  "author": "Kirti Anand Singh",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/anand_parihar/ollgood#readme"
+}

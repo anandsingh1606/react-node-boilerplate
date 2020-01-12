@@ -1,0 +1,39 @@
+POST http://localhost:8001/api/auth/signup-send-otp HTTP/1.1
+content-type: application/json
+
+{
+  "mobileNumber":"9993030686",
+  "countryCode":"91"
+}
+
+###
+
+POST http://localhost:8001/api/auth/signup-with-otp HTTP/1.1
+content-type: application/json
+
+{
+  "mobileNumber":"9993030686",
+  "countryCode":"91",
+  "otp":"082315",
+  "displayName":"Anand"
+}
+
+###
+POST http://localhost:8001/api/auth/login-send-otp HTTP/1.1
+content-type: application/json
+
+{
+  "mobileNumber":"9993030686",
+  "countryCode":"91"
+}
+
+###
+
+POST http://localhost:8001/api/auth/login-with-otp HTTP/1.1
+content-type: application/json
+
+{
+  "mobileNumber":"9993030686",
+  "countryCode":"91",
+  "otp":"272878"
+}
