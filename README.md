@@ -34,3 +34,22 @@ A boilerplate with less configuration and more code. The intention of creating t
 - Sms API :white_check_mark:
 
 
+## DEMO 
+
+React APP demo: https://anandgithub01.github.io/
+
+
+## SETUP 
+
+After Node and MySql installation 
+
+STEP1: `npm install`
+STEP2: `npm start` 
+
+
+And we are done, Now your react app will be running on `8001` and node js App will be running on `8000`.
+
+
+Documentation and some other stuff is still pending... Working on it.
+This repo is currently on development for initial requirements. Open for getting any contribution. Thanks!! 
+
