@@ -1,6 +1,5 @@
 node_modules/
-server/config/keys.js
-udemy.temp/
 .vscode/
 server/.env
 .DS_Store
+client/dist/

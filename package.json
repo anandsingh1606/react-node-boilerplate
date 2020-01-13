@@ -9,7 +9,8 @@
   },
   "scripts": {
     "install": "(cd client && npm install) && (echo ==================Client Install Complete==========================) && (cd server && npm install)",
-    "start": "concurrently \"cd client && npm run start:dev\"  \"cd server && npm start\""
+    "start": "concurrently \"cd client && npm run start:dev\"  \"cd server && npm start\"",
+    "setup-db":"cd server && npm run setup-db"
   },
   "repository": {
     "type": "git",

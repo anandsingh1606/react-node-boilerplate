@@ -130,6 +130,6 @@ module.exports = (env = {}) => {
       htmlPlugin,
     ],
     resolve: resolve,
-    devServer: { historyApiFallback: true },
+    devServer: { historyApiFallback: true, port: 8001},
   };
 };

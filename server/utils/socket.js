@@ -1,5 +1,5 @@
 import socketIo from "socket.io";
-import { verifyToken } from "./common.util";
+import { verifyToken, getLocaleText } from "./common.util";
 import User from "Models/user.model";
 import { userPayload } from "Utils/payload-structure.util";
 
@@ -16,6 +16,7 @@ export const initSocket = (server) => {
 };
 
 const listenNewUser = (socket) => {
+  console.log("socket.request.headers",socket.request.headers);
   socket.on("userConnected", (data) => {
     const token = data.token;
     const userInfo = verifyToken(token);
@@ -29,7 +30,7 @@ const listenNewUser = (socket) => {
               socket.leave(userInfo.userId);
             });
             io.to(userInfo.userId).emit("welcomeMessage", {
-              message: `Welcome ${result.displayName}, This message is coming from socket!!`,
+              message: getLocaleText("welcomeSocketMessage",{displayName:result.displayName}),
             });
             clearInterval(interval);
           }, 2000);

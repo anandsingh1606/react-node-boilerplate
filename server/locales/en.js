@@ -3,6 +3,7 @@ export default {
      ANCHOR Common translations
     ===================================================================================*/
     invalidDataMessage : "Invalid data, Please recheck and try again.",
+    welcomeSocketMessage:"`Welcome {{displayName}}, This message is coming from socket!!`",
 
     
    /*=================================================================================

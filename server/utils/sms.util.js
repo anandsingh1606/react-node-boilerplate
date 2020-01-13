@@ -3,9 +3,11 @@ import {SMS_SENDER_NUMBER} from  "Config/keys";
 
 export const sendSms = ({ number, message }) => {
   return new Promise((res) => {
-
-    // TODO: handle this with env variable
-    if(true) {
+   
+    /*=================================================================================
+     TODO Before going to production we need to handle this properly.
+    ===================================================================================*/
+    if(process.env.SMS_API === false) {
       res({});
     };
 

@@ -1,5 +1,10 @@
 import io from 'socket.io-client';
-const socket = io('http://localhost:8000');
+import {getCurrentLocale} from "Utils/common";
+const socket = io('http://localhost:8000',{
+    extraHeaders: {
+      "user-locale": getCurrentLocale(),
+    }
+  });
 
 // handle all common/global socket operation in this file
 
