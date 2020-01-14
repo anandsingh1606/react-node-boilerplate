@@ -49,7 +49,7 @@ React APP demo: https://anandgithub01.github.io/
 
 
 #### Server configuration 
-1) Rename you `.env.example` to `.env`
+1) Rename you `/server/.env.example` to `/server/.env`
 2) Set up SMS API, Get free trial Twilio account(https://www.twilio.com/docs/sms/quickstart/node) and update the key in `.env` file or if you want to skip this, for now, make `SMS_API=false` in `.env` file.
 3) Create a new database in MySql, Update your database credentials in `.env` file.
 4) Create database tables, `npm run setup-db`
@@ -60,8 +60,9 @@ React APP demo: https://anandgithub01.github.io/
   
 And we are ready, Now your react app will be running on `8001` and NodeJs server will be running on `8000`.
 
->> Note: This boilerplate is not production-ready, I have covered some of the required configurations but still we have few thing remaining. The main intention of putting it open source is to give people an option to quick development start. 
+### Note: This boilerplate is not production-ready, I have covered some of the required configurations but still we have few thing remaining. The main intention of putting it open source is to give people an option to quick development start. 
   
-### Documentation and some other stuff are still pending... Working on it.
-### This repo is currently on development for initial requirements. Open for getting any contribution. Thanks!!
+> ### Documentation and some other stuff are still pending... Working on it.
+
+> ### This repo is currently on development for initial requirements. Open for getting any contribution. Thanks!!
 
