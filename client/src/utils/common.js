@@ -3,7 +3,6 @@ import { getCountryCallingCode } from "react-phone-number-input/input";
 import localeObject from "Locales/messages";
 
 export const updateObj = (state, data) => {
-  // eslint-disable-line
   return updateHelper(state, data);
 };
 

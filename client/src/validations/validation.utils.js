@@ -1,11 +1,6 @@
-import validationErrorMessages from "./validation-messages";
 import validationRules from "./validation-rules";
-export const getFormatedRule = (ruleName, msg, ruleValue) => {
-  let defaultMessage = validationErrorMessages[ruleName];
-  const originalRuleName = ruleValue ? `${ruleName}:${ruleValue}` : ruleName;
-  return { name: originalRuleName, msg: { msg, defaultMessage: defaultMessage } };
-};
 
+// eslint-disable-next-line import/prefer-default-export
 export const getFormatedFieldRule = (rules) => {
   const rulesName = [];
   const rulesErrorMessage = [];

@@ -1,7 +1,6 @@
 const urlParams = new URLSearchParams(self.location.search);
-const cacheName = urlParams.get('cache_version');
-const env  = urlParams.get('env');
-
+const cacheName = urlParams.get("cache_version");
+const env = urlParams.get("env");
 
 const fetchAndCache = (e) => {
   return fetch(e.request).then((res) => {
@@ -32,14 +31,19 @@ self.addEventListener("activate", (e) => {
           if (cache !== cacheName) {
             return caches.delete(cache);
           }
+          return Promise.resolve();
         })
-      )
+      );
     })
   );
 });
 
 self.addEventListener("fetch", (e) => {
-  if (e.request.destination && ["script", "image", "style","manifest","document"].includes(e.request.destination) && env === "production") {
+  if (
+    e.request.destination
+    && ["script", "image", "style", "manifest", "document"].includes(e.request.destination)
+    && env === "production"
+  ) {
     e.respondWith(
       caches.open(cacheName).then((cache) => {
         return cache.match(e.request).then((response) => {
@@ -49,9 +53,11 @@ self.addEventListener("fetch", (e) => {
     );
     return;
   }
-  e.respondWith(fetchAndCache(e).catch((err1) => {
+  e.respondWith(
+    fetchAndCache(e).catch(() => {
       return caches.match(e.request).then((res) => {
         return res;
-        })
-    }));
+      });
+    })
+  );
 });

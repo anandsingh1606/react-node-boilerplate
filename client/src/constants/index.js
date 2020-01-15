@@ -1,4 +1,5 @@
 import actions from "./actions";
+
 export const ACTIONS = actions;
 export const localeList = [
   {

@@ -1,7 +1,7 @@
 import constants from "./auth.constants";
 import { storeUtils } from "Utils";
 
-const { LOGIN, SIGNUP,LOGOUT } = constants;
+const { LOGIN, SIGNUP, LOGOUT } = constants;
 const { apiPostDispatch } = storeUtils;
 
 export const loginMobileSendOtp = (params) => {
@@ -55,8 +55,8 @@ export const signupMobileVerifyOtp = (data) => {
   };
 };
 
-export const logout =  () => {
+export const logout = () => {
   return {
-      type: LOGOUT
-  }
+    type: LOGOUT
+  };
 };

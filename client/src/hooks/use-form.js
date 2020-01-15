@@ -6,10 +6,12 @@ const useForm = (model, formRef) => {
   const {
     updateControl,
     updateView,
-    state: { controls,view },
+    state: { controls, view },
   } = useModel(() => cloneDeep(model));
   const [isFormValid] = useFormValidationCheck(false, controls, formRef.current);
-  return {updateControl,updateView, controls, view, isFormValid }
+  return {
+    updateControl, updateView, controls, view, isFormValid
+  };
 };
 
 export default useForm;

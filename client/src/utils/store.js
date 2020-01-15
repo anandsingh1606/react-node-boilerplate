@@ -64,12 +64,12 @@ export const apiPostDispatch = (dispatch, params) => {
     dispatch(requestDispatch({ ACTION }));
   }
   return apiPost(url, data, config).then((response) => {
-   if (response.error && errorDispatchEnable) {
+    if (response.error && errorDispatchEnable) {
       dispatch(errorDispatch({ ACTION, error: response.error }));
       return response;
     }
     if (successDispatchEnable) {
-      dispatch(successDispatch({ ACTION, data:response.data }));
+      dispatch(successDispatch({ ACTION, data: response.data }));
       return response;
     }
     return response;

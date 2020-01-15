@@ -31,5 +31,5 @@ export default {
       },
     },
   },
-  LOGOUT:"LOGOUT",
+  LOGOUT: "LOGOUT",
 };

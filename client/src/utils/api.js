@@ -7,8 +7,9 @@ export const axios = axiosModule.create({
 });
 
 axios.interceptors.request.use((config) => {
-  config.headers["User-Locale"] = getCurrentLocale();
-  return config;
+  const updatedConfig = { ...config };
+  updatedConfig.headers["User-Locale"] = getCurrentLocale();
+  return updatedConfig;
 });
 
 export const apiErrorParser = (error = {}) => {

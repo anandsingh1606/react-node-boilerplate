@@ -1,8 +1,8 @@
-import React, { useEffect, useState, Suspense } from "react";
+import React, {
+  useEffect, useState, Suspense,
+} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Switch, Route, useHistory } from "react-router-dom";
-const Auth = React.lazy(() => import("Modules/auth/auth.main"));
-const Home = React.lazy(() => import("Modules/home/home.main"));
 import useRedux from "Hooks/use-redux";
 import Snackbar from "Components/snackbar";
 import Header from "Components/header";
@@ -13,6 +13,9 @@ import * as loginSingup from "Animations/login-signup.json";
 import "Css/theme.css";
 import { styles } from "./styles";
 
+const Auth = React.lazy(() => import("Modules/auth/auth.main"));
+const Home = React.lazy(() => import("Modules/home/home.main"));
+
 const App = () => {
   const history = useHistory();
   const mapState = (state) => ({
@@ -20,7 +23,6 @@ const App = () => {
     redirectUrl: state.common.redirectUrl,
     locale: state.common.locale,
   });
-
   const {
     mappedState: { apiErrors, redirectUrl },
     dispatch,
@@ -65,7 +67,7 @@ const App = () => {
         </div>
         <Footer className={classes.footer} />
       </main>
- </>
+    </>
   );
 };
 

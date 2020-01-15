@@ -13,7 +13,7 @@ const useModel = (model) => {
 
   const updateView = (data) => {
     const updatedState = updateObj(state, {
-      view: updateObj(state.view,  { $merge: { ...data }}),
+      view: updateObj(state.view, { $merge: { ...data } }),
     });
     setState(updatedState);
   };

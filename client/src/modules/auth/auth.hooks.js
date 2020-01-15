@@ -1,15 +1,17 @@
 import { useEffect, useRef, useState } from "react";
-import { useHistory } from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 
 const useMobileOtp = (params) => {
-  const { sendError, sendStart, token, verifyStart } = params;
-  
+  const {
+    sendError, sendStart, token, verifyStart
+  } = params;
+
   // view handing
   const [{ viewType, direction }, setView] = useState({ viewType: "MOBILE_FORM", direction: null });
   const [inProgress, setProgress] = useState(false);
 
   // history project
-  let history = useHistory()
+  const history = useHistory();
 
 
   // effects
@@ -46,7 +48,9 @@ const useMobileOtp = (params) => {
     }
   }, [token, verifyStart]);
 
-  return { viewType, direction, inProgress, setView, setProgress };
+  return {
+    viewType, direction, inProgress, setView, setProgress
+  };
 };
 
 export default useMobileOtp;

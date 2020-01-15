@@ -3,18 +3,24 @@
   "version": "1.0.0",
   "description": "A simple, scalable and full featured react-node boilerplate",
   "main": "",
-  "dependencies": {},
   "devDependencies": {
-    "concurrently": "^5.0.2"
+    "babel-eslint": "^10.0.3",
+    "concurrently": "^5.0.2",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-no-param-reassign-allow-reduce": "^1.0.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-standard": "^4.0.1"
   },
   "scripts": {
     "install": "(cd client && npm install) && (echo ==================Client Install Complete==========================) && (cd server && npm install)",
     "start": "concurrently \"cd client && npm run start:dev\"  \"cd server && npm start\"",
-    "setup-db":"cd server && npm run setup-db"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://anand_parihar@bitbucket.org/anand_parihar/ollgood.git"
+    "setup-db": "cd server && npm run setup-db"
   },
   "keywords": [
     "react",

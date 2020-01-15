@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon  -r esm -r module-alias/register -r dotenv/config server.js",
-    "setup-db":"node -r esm -r module-alias/register -r dotenv/config ./extra/database-sync"
+    "setup-db": "node -r esm -r module-alias/register -r dotenv/config ./extra/database-sync"
   },
   "author": "",
   "license": "ISC",

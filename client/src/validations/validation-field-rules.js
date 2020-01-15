@@ -1,4 +1,3 @@
-import { getLocaleText } from "Utils/common";
 export default {
   email: [{ ruleName: "required", msg: { fieldName: "email" } }, { ruleName: "email" }],
   password: [
