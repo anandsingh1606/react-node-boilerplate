@@ -22,7 +22,7 @@ const App = () => {
   });
 
   const {
-    mappedState: { apiErrors, redirectUrl, locale },
+    mappedState: { apiErrors, redirectUrl },
     dispatch,
   } = useRedux(mapState);
   const [showError, setShowError] = useState(null);

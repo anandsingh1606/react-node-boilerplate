@@ -1,22 +1,69 @@
 {
   "compilerOptions": {
     "target": "es6",
+    "jsx": "react",
     "allowSyntheticDefaultImports": false,
     "baseUrl": "./",
+    "module": "commonjs",
     "paths": {
-      "Modules/*": ["./server/src/modules/*"],
-      "Root/*": ["./server/src/*"],
-      "Utils/*": ["./server/src/utils/*"],
-      "Models/*": ["./server/src/models/*"],
-      "Db/*": ["./server/src/config]/database.js"],
-      "Config/*": [".server/src/config/*"],
-      "Validations/*": ["./server/src/validations/*"],
-      "Middleware/*": ["./server/src/middleware/*"],
-      "Constants/*": ["./server/src/constants/*"],
-      "Locales/*": ["./server/src/locales/*"],
-      "ThemeAssets/*": ["./client/src/assets/theme/react-material/*"],
-      "ThemeComponents/*": ["./client/src/components/*"]
+      "Modules/*": [
+        "./server/src/modules/*",
+        "./client/src/modules/*"
+      ],
+      "Root/*": [
+        "./server/src/*",
+        "./client/src/*"
+      ],
+      "Utils/*": [
+        "./server/src/utils/*",
+        "./client/src/utils/*"
+      ],
+      "Models/*": [
+        "./server/src/models/*"
+      ],
+      "Db/*": [
+        "./server/src/config]/database.js"
+      ],
+      "Config/*": [
+        ".server/src/config/*"
+      ],
+      "Validations/*": [
+        "./server/src/validations/*",
+        "./client/src/validations/*"
+      ],
+      "Middleware/*": [
+        "./server/src/middleware/*"
+      ],
+      "Constants/*": [
+        "./server/src/constants/*",
+        "./client/src/constants/*"
+      ],
+      "Locales/*": [
+        "./server/src/locales/*",
+        "./client/src/locales/*"
+      ],
+      "Hooks/*": [
+        "./client/src/hooks/*"
+      ],
+      "CommonComponents/*": [
+        "./client/src/components/common/*"
+      ],
+      "Components/*": [
+        "./client/src/components/*"
+      ],
+      "Store/*": [
+        "./client/src/store/*"
+      ],
+      "Animations/*": [
+        "./client/src/assets/animations/*"
+      ],
+      "Css/*": [
+        "./client/src/assets/css/*"
+      ],
     }
   },
-  "exclude": ["node_modules", "dist"]
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
 }
