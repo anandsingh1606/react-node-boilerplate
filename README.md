@@ -6,13 +6,6 @@ A boilerplate with less configuration and more code. The intention of creating t
 ### Highlights
 
 
-
-> Common feature
-
-- Feature-based folder structure :white_check_mark:
-- Simple and consistent naming convention :white_check_mark:
-- No `../../../` :white_check_mark: 
-
 > React App 
 
 - React hooks :white_check_mark: :heavy_heart_exclamation:
@@ -34,6 +27,13 @@ A boilerplate with less configuration and more code. The intention of creating t
 - Sms API :white_check_mark:
 
 
+> Setup feature
+
+- Feature-based folder structure :white_check_mark:
+- Simple and consistent naming convention :white_check_mark:
+- No `../../../` :white_check_mark: 
+
+
 ## DEMO 
 
 React APP demo: https://anandgithub01.github.io/
@@ -41,15 +41,28 @@ React APP demo: https://anandgithub01.github.io/
 
 ## SETUP 
 
-After Node and MySql installation 
-
-STEP1: `npm install`
-STEP2: `npm start` 
-
-
-And we are done, Now your react app will be running on `8001` and node js App will be running on `8000`.
+#### Installation 
+1) Install NodeJs (10 or above), npm (5 or above), MySql (8 or above)
+2) Clone repo `git clone https://github.com/anandGithub01/react-node-boilerplate.git`
+3) Go to project folder `cd react-node-boilerplate`
+4) Install dependencies `npm install`
 
 
-### Documentation and some other stuff is still pending... Working on it.
-### This repo is currently on development for initial requirements. Open for getting any contribution. Thanks!!
+#### Server configuration 
+1) Rename you `/server/.env.example` to `/server/.env`
+2) Set up SMS API, Get free trial Twilio account(https://www.twilio.com/docs/sms/quickstart/node) and update the key in `.env` file or if you want to skip this, for now, make `SMS_API=false` in `.env` file.
+3) Create a new database in MySql, Update your database credentials in `.env` file.
+4) Create database tables, `npm run setup-db`
+
+#### Start the App
+
+`npm start`
+  
+And we are ready, Now your react app will be running on `8001` and NodeJs server will be running on `8000`.
+
+### Note: This boilerplate is not production-ready, I have covered some of the required configurations but still we have few thing remaining. The main intention of putting it open source is to give people an option to quick development start. 
+  
+> ### Documentation and some other stuff are still pending... Working on it.
+
+> ### This repo is currently on development for initial requirements. Open for getting any contribution. Thanks!!
 
