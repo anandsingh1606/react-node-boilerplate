@@ -1,7 +1,7 @@
 import smsClient from "Config/sms.config";
 
 export const sendSms = ({ number, message }) => {
-  const { SMS_SENDER_NUMBER } = process.env;
+  const { SMS_SENDER_NUMBER, SMS_API } = process.env;
   return new Promise((res) => {
     /*=================================================================================
      TODO Before going to production we need to handle this properly.
