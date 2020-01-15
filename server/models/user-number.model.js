@@ -10,25 +10,25 @@ const UserNumber = db.define(
     id: {
       type: Sequelize.UUID,
       primaryKey: true,
-      defaultValue:Sequelize.UUIDV4,
+      defaultValue: Sequelize.UUIDV4,
     },
-    userId:{
-        type: Sequelize.UUID,
-        references: {
-            model:"Users",
-            key:"id",
-        }
+    userId: {
+      type: Sequelize.UUID,
+      references: {
+        model: "Users",
+        key: "id",
+      }
     },
     mobileNumber: {
       type: Sequelize.STRING,
     },
-    countryCode:{
+    countryCode: {
       type: Sequelize.INTEGER(4).UNSIGNED,
     },
-    verified:{
-        type: Sequelize.BOOLEAN,
-        allowNull:false,
-        default:false,
+    verified: {
+      type: Sequelize.BOOLEAN,
+      allowNull: false,
+      default: false,
     }
   },
   {

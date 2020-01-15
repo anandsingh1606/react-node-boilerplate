@@ -2,14 +2,14 @@ import { authenticator } from "otplib";
 import jwt from "jsonwebtoken";
 import localeObject from "Locales";
 
-/*=================================================================================
+/*= ================================================================================
  ANCHOR Common frequent used functions
-===================================================================================*/
+=================================================================================== */
 
 const { OTP_SECRET, JWT_SECRET } = process.env;
 
-export const log = (value, label = "", type = "log") => {
-  label = label ? `-${label}` : "";
+export const log = (value, givenLabel = "", type = "log") => {
+  const label = givenLabel ? `-${givenLabel}` : "";
   console.log("\x1b[33m", `=======================Start${label}========================`);
   if (Array.isArray(value)) {
     value.forEach((item) => {
@@ -47,10 +47,11 @@ export const verifyToken = (token) => {
 
 export const getLocaleText = (currentLocale) => (key, replace) => {
   if (localeObject[currentLocale] && localeObject[currentLocale][key]) {
-    if (replace && typeof replace == "object") {
+    if (replace && typeof replace === "object") {
       let localeText = localeObject[currentLocale][key];
       Object.keys(replace).map((objectKey) => {
         localeText = localeText.replace(`{{${objectKey}}}`, replace[objectKey]);
+        return objectKey;
       });
       return localeText;
     }

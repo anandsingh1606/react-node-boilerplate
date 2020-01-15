@@ -6,7 +6,9 @@ import { sendSms } from "Utils/sms.util";
 import { generateOtp } from "Utils/common.util";
 
 export const createUser = (data, { res }) => {
-  const { displayName, mobileNumber, countryCode, otp } = data;
+  const {
+    displayName, mobileNumber, countryCode, otp
+  } = data;
   return new Promise((resolve) => {
     UserNumber.get({ mobileNumber, countryCode, verified: true }, { res }).then((result) => {
       if (result) {
@@ -15,10 +17,12 @@ export const createUser = (data, { res }) => {
         });
       }
 
-      db.transaction().then((transaction) => {
+      return db.transaction().then((transaction) => {
         User.add({ displayName, countryCode, mobileNumber }, { res, transaction }).then((userSetResult) => {
           const taskUserNumberSave = UserNumber.add(
-            { mobileNumber, countryCode, verified: true, userId: userSetResult.id },
+            {
+              mobileNumber, countryCode, verified: true, userId: userSetResult.id
+            },
             { res, transaction }
           );
           const taskOtpUpdate = Otp.set({ status: "verified" }, { sendTo: `${countryCode}${mobileNumber}`, otp }, { res, transaction });
@@ -41,16 +45,16 @@ export const sendOtp = ({ countryCode, mobileNumber }, { res }) => {
   return new Promise((resolve) => {
     const receiverNumber = `${countryCode}${mobileNumber}`;
     const otp = generateOtp();
-    Otp.add({ sendTo: receiverNumber, otp }, { res }).then((result) => {
+    Otp.add({ sendTo: receiverNumber, otp }, { res }).then(() => {
       sendSms({
         number: receiverNumber,
-        message: res.getLocaleText("authUserOtpMessage", { "otp": otp }),
+        message: res.getLocaleText("authUserOtpMessage", { otp: otp }),
       }).then(({ error, result }) => {
         if (error) {
           console.log("OTP error:", error);
           return resolve({ error: { ...error, message: res.getLocaleText("authOtpNotSentMessage") } });
         }
-        resolve({ result });
+        return resolve({ result });
       });
     });
   });

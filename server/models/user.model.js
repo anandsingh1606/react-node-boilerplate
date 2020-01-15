@@ -35,12 +35,12 @@ const User = db.define(
     },
     active: {
       type: Sequelize.BOOLEAN,
-      defaultValue:true,
+      defaultValue: true,
     },
   },
   {
     // options
   }
 );
- 
+
 export default withCommonOperation(User);

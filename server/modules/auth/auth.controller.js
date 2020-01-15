@@ -1,4 +1,4 @@
-//NOTE data sanitize, data validation, access control(permission), happy and failure case, error handling, response structure
+// NOTE data sanitize, data validation, access control(permission), happy and failure case, error handling, response structure
 
 import { createUser, sendOtp } from "./auth.service";
 import User from "Models/user.model";
@@ -16,7 +16,7 @@ export const signupSendOtpController = (req, res) => {
       return arhObj.error({ errorMessage: res.getLocaleText("authMobileAlreadyExistMessage") });
     }
 
-    sendOtp({ mobileNumber, countryCode }, { res }).then(({ error: sendOtpError }) => {
+    return sendOtp({ mobileNumber, countryCode }, { res }).then(({ error: sendOtpError }) => {
       if (sendOtpError) {
         return arhObj.error({ errorMessage: sendOtpError.message });
       }
@@ -26,7 +26,9 @@ export const signupSendOtpController = (req, res) => {
 };
 
 export const signupVerifyOtpController = (req, res) => {
-  const { mobileNumber, displayName, countryCode, otp } = req.body;
+  const {
+    mobileNumber, displayName, countryCode, otp
+  } = req.body;
   const arhObj = apiResponseHandler(res);
   // check otp
   Otp.get({ sendTo: `${countryCode}${mobileNumber}`, otp, status: "created" }, { res }).then((findOtpResult) => {
@@ -34,8 +36,10 @@ export const signupVerifyOtpController = (req, res) => {
       return arhObj.error({ errorMessage: res.getLocaleText("authOtpInvalidMessage") });
     }
 
-    //create user
-    createUser({ mobileNumber, displayName, countryCode, otp }, { res }).then(({ error: createUserError, result: createUserResult }) => {
+    // create user
+    return createUser({
+      mobileNumber, displayName, countryCode, otp
+    }, { res }).then(({ error: createUserError, result: createUserResult }) => {
       if (createUserError) {
         return arhObj.error(createUserError);
       }
@@ -57,7 +61,7 @@ export const loginSendOtpController = (req, res) => {
       return arhObj.error({ errorMessage: res.getLocaleText("authUserNotExistMessage") });
     }
 
-    sendOtp({ mobileNumber, countryCode }, { res }).then(({ error: sendOtpError }) => {
+    return sendOtp({ mobileNumber, countryCode }, { res }).then(({ error: sendOtpError }) => {
       if (sendOtpError) {
         return arhObj.error({ errorMessage: sendOtpError.message });
       }
@@ -74,14 +78,14 @@ export const loginWithOtpController = (req, res) => {
     if (!findOtpResult) {
       return arhObj.error({ errorMessage: res.getLocaleText("authOtpInvalidMessage") });
     }
-    UserNumber.get(
+    return UserNumber.get(
       { mobileNumber, countryCode, verified: true },
       { res, include: [{ model: User, required: true, where: { active: true } }] }
     ).then((userNumberResult) => {
       if (!userNumberResult) {
         return arhObj.error({ errorMessage: res.getLocaleText("authUserNotActiveMessage") });
       }
-      Otp.set({ status: "verified" }, { sendTo: `${countryCode}${mobileNumber}`, otp }, { res }).then(() => {
+      return Otp.set({ status: "verified" }, { sendTo: `${countryCode}${mobileNumber}`, otp }, { res }).then(() => {
         const userResult = userNumberResult.User;
         const responsePayload = {
           token: getUserLoginToken({ user: userNumberResult.User }),

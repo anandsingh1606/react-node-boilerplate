@@ -6,6 +6,35 @@ import { userPayload } from "Utils/payload-structure.util";
 let io = null;
 export const userConnection = {};
 
+const listenNewUser = (socket) => {
+  console.log("socket.request.headers", socket.request.headers);
+  socket.on("userConnected", (data) => {
+    const { token } = data;
+    const { userLocale } = data;
+    const userInfo = verifyToken(token);
+    if (userInfo) {
+      User.getActive({ id: userInfo.userId }, { attributes: userPayload }).then(({ result }) => {
+        if (result) {
+          const interval = setTimeout(() => {
+            socket.join(userInfo.userId);
+            socket.on("disconnect", () => {
+              console.log("disconnect", userInfo.userId);
+              socket.leave(userInfo.userId);
+            });
+            io.to(userInfo.userId).emit("welcomeMessage", {
+              message: getLocaleText(userLocale)("welcomeSocketMessage", { displayName: result.displayName }),
+            });
+            clearInterval(interval);
+          }, 2000);
+        } else {
+          console.log("Invalid user id");
+        }
+      });
+    }
+  });
+};
+
+
 export const initSocket = (server) => {
   io = socketIo(server);
   io.on("connection", (socket) => {
@@ -15,32 +44,6 @@ export const initSocket = (server) => {
   return io;
 };
 
-const listenNewUser = (socket) => {
-  console.log("socket.request.headers",socket.request.headers);
-  socket.on("userConnected", (data) => {
-    const token = data.token;
-    const userLocale = data.userLocale;
-    const userInfo = verifyToken(token);
-    if (userInfo) {
-      User.getActive({ id: userInfo.userId }, { attributes: userPayload }).then(({ result }) => {
-        if (result) {
-          const interval = setTimeout(() => {
-            socket.join(userInfo.userId);
-            socket.on("disconnect", function() {
-              console.log("disconnect", userInfo.userId);
-              socket.leave(userInfo.userId);
-            });
-            io.to(userInfo.userId).emit("welcomeMessage", {
-              message: getLocaleText(userLocale)("welcomeSocketMessage",{displayName:result.displayName}),
-            });
-            clearInterval(interval);
-          }, 2000);
-        } else{
-            console.log("Invalid user id");
-        }
-      });
-    }
-  });
-};
 
-export default io;
+const constIo = io;
+export default constIo;

@@ -23,4 +23,3 @@ export const loginWithOtpValidation = [
   validationFieldRules.countryCode(),
   validationFieldRules.otp(),
 ];
-

@@ -9,7 +9,7 @@ module.exports = {
         "browser": true,
         "node": true,
     },
-    "ignorePatterns": ["**/*test.js", "*/node_modules/"],
+    "ignorePatterns": ["**/*test.js"],
     "rules": {
         "max-len": [2, {"code": 140, "tabWidth": 4, "ignoreUrls": true}],
         "guard-for-in": "off",

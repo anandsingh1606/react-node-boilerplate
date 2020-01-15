@@ -1,11 +1,12 @@
 import smsClient from "Config/sms.config";
 
+// eslint-disable-next-line import/prefer-default-export
 export const sendSms = ({ number, message }) => {
   const { SMS_SENDER_NUMBER, SMS_API } = process.env;
   return new Promise((res) => {
-    /*=================================================================================
+    /*= ================================================================================
      TODO Before going to production we need to handle this properly.
-    ===================================================================================*/
+    =================================================================================== */
     if (SMS_API === "false") {
       res({});
     }

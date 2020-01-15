@@ -4,6 +4,6 @@ export const language = {
 
 
 export const errorCodes = {
- DATABASE_ERROR:"DATABASE_ERROR",
- SERVER_ERROR:"SERVER_ERROR",
-}
+  DATABASE_ERROR: "DATABASE_ERROR",
+  SERVER_ERROR: "SERVER_ERROR",
+};

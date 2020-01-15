@@ -3,21 +3,21 @@ import http from "http";
 import bodyParser from "body-parser";
 import { log } from "Utils/common.util";
 import { initSocket } from "Utils/socket";
-import routes from "./routes.js";
+import routes from "./routes";
 import dataSanitizer from "Middleware/data-sanitizer";
 import addLocale from "Middleware/locale";
 import cors from "cors";
 import db from "Db";
 
 const app = express();
-var server = http.Server(app);
+const server = http.Server(app);
 const port = process.env.PORT;
 
 initSocket(server);
 
 // ANCHOR start server listen
 server.listen(port, () => {
-  log(`test server is running...`);
+  log("test server is running...");
   log(`Port: ${port}`);
 });
 

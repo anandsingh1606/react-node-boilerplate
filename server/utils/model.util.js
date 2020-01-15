@@ -1,7 +1,8 @@
+/* eslint-disable no-param-reassign */
 import { modelResponseHandler } from "Utils/response-handler.util";
 
 
-const get = (modelObj, where, other = {}) =>   {
+const get = (modelObj, where, other = {}) => {
   const { res, transaction, ...otherOptions } = other;
   return modelResponseHandler(
     modelObj
@@ -14,7 +15,7 @@ const get = (modelObj, where, other = {}) =>   {
       })
       .then((result) => {
         if (result.length) {
-          if(otherOptions.limit){
+          if (otherOptions.limit) {
             return result;
           }
           return result[0];
@@ -25,15 +26,15 @@ const get = (modelObj, where, other = {}) =>   {
     transaction
   );
 };
+// eslint-disable-next-line import/prefer-default-export
 export const withCommonOperation = (modelObj) => {
-  
   modelObj.get = (where, other = {}) => {
-    return get(modelObj, where,other);
-  }
+    return get(modelObj, where, other);
+  };
 
   modelObj.getActive = (where, other = {}) => {
-    return get(modelObj, {...where, active:true},other);
-  }
+    return get(modelObj, { ...where, active: true }, other);
+  };
 
   modelObj.add = (row, other = {}) => {
     const { res, transaction } = other;
