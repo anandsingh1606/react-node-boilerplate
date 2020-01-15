@@ -67,6 +67,10 @@ And we are ready, Now your react app will be running on `8001` and NodeJs server
 
 
 
+#### Development guidelines
+
+I will create a detail document for this, but for now please refer auth module of client and server. Loader, API error handling in the client, App-level error handling in react app, and many other things are already in place. 
+
 
 
 
