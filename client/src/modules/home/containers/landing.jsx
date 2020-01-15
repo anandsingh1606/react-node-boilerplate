@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { isUserLoggedIn } from "Utils/common";
+import { isUserLoggedIn, getCurrentLocale } from "Utils/common";
 import { Grid } from "@material-ui/core";
 import HomeIcon from "@material-ui/icons/Home";
 import LockIcon from "@material-ui/icons/Lock";
@@ -10,7 +10,7 @@ import Text from "CommonComponents/text";
 const landing = () => {
   useEffect(() => {
     if (isUserLoggedIn()) {
-      socket.emit("userConnected", { token: isUserLoggedIn() });
+      socket.emit("userConnected", { token: isUserLoggedIn(), userLocale : getCurrentLocale() });
       socket.on("welcomeMessage", (data) => {
         setSocketMessage(data.message);
       });

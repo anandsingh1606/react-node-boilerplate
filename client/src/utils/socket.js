@@ -1,10 +1,5 @@
 import io from 'socket.io-client';
-import {getCurrentLocale} from "Utils/common";
-const socket = io('http://localhost:8000',{
-    extraHeaders: {
-      "user-locale": getCurrentLocale(),
-    }
-  });
+const socket = io(process.env.SOCK_SERVER);
 
 // handle all common/global socket operation in this file
 

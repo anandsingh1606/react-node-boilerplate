@@ -19,6 +19,7 @@ const listenNewUser = (socket) => {
   console.log("socket.request.headers",socket.request.headers);
   socket.on("userConnected", (data) => {
     const token = data.token;
+    const userLocale = data.userLocale;
     const userInfo = verifyToken(token);
     if (userInfo) {
       User.getActive({ id: userInfo.userId }, { attributes: userPayload }).then(({ result }) => {
@@ -30,7 +31,7 @@ const listenNewUser = (socket) => {
               socket.leave(userInfo.userId);
             });
             io.to(userInfo.userId).emit("welcomeMessage", {
-              message: getLocaleText("welcomeSocketMessage",{displayName:result.displayName}),
+              message: getLocaleText(userLocale)("welcomeSocketMessage",{displayName:result.displayName}),
             });
             clearInterval(interval);
           }, 2000);
