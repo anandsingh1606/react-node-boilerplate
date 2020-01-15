@@ -1,11 +1,12 @@
 import { authenticator } from "otplib";
 import jwt from "jsonwebtoken";
-import { OTP_SECRET, JWT_SECRET } from "Config/keys";
 import localeObject from "Locales";
 
 /*=================================================================================
  ANCHOR Common frequent used functions
 ===================================================================================*/
+
+const { OTP_SECRET, JWT_SECRET } = process.env;
 
 export const log = (value, label = "", type = "log") => {
   label = label ? `-${label}` : "";
