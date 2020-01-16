@@ -1,6 +1,6 @@
-import User from "./user.model";
-import UserNumber from "./user-number.model";
-import Otp from "./otp.model";
+import User from "./user";
+import UserNumber from "./user-number";
+import Otp from "./otp";
 
 
 User.hasMany(UserNumber, { foreignKey: "userId" });

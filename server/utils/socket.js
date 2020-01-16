@@ -1,7 +1,7 @@
 import socketIo from "socket.io";
-import { verifyToken, getLocaleText } from "./common.util";
-import User from "Models/user.model";
-import { userPayload } from "Utils/payload-structure.util";
+import { verifyToken, getLocaleText } from "./common";
+import User from "Models/user";
+import { userPayload } from "Utils/payload-structure";
 
 let io = null;
 export const userConnection = {};

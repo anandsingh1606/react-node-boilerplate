@@ -1,4 +1,4 @@
-import { log } from "Utils/common.util";
+import { log } from "Utils/common";
 
 const dataSanitizer = (req, res, next) => {
   if (typeof req.body === "object") {

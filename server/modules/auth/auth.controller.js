@@ -1,11 +1,11 @@
 // NOTE data sanitize, data validation, access control(permission), happy and failure case, error handling, response structure
 
 import { createUser, sendOtp } from "./auth.service";
-import User from "Models/user.model";
-import UserNumber from "Models/user-number.model";
-import Otp from "Models/otp.model";
-import { apiResponseHandler } from "Utils/response-handler.util";
-import { getUserLoginToken } from "Utils/common.util";
+import User from "Models/user";
+import UserNumber from "Models/user-number";
+import Otp from "Models/otp";
+import { apiResponseHandler } from "Utils/response-handler";
+import { getUserLoginToken } from "Utils/common";
 
 export const signupSendOtpController = (req, res) => {
   const { mobileNumber, countryCode } = req.body;

@@ -1,6 +1,6 @@
 import db from "Db";
 import Sequelize from "sequelize";
-import { withCommonOperation } from "Utils/model.util";
+import { withCommonOperation } from "Utils/model";
 
 // schema
 const Otp = db.define(

@@ -1,7 +1,7 @@
 import express from "express";
 import http from "http";
 import bodyParser from "body-parser";
-import { log } from "Utils/common.util";
+import { log } from "Utils/common";
 import { initSocket } from "Utils/socket";
 import routes from "./routes";
 import dataSanitizer from "Middleware/data-sanitizer";

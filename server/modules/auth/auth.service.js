@@ -1,9 +1,9 @@
 import db from "Db";
-import User from "Models/user.model";
-import Otp from "Models/otp.model";
-import UserNumber from "Models/user-number.model";
-import { sendSms } from "Utils/sms.util";
-import { generateOtp } from "Utils/common.util";
+import User from "Models/user";
+import Otp from "Models/otp";
+import UserNumber from "Models/user-number";
+import { sendSms } from "Utils/sms";
+import { generateOtp } from "Utils/common";
 
 export const createUser = (data, { res }) => {
   const {

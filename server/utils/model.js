@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { modelResponseHandler } from "Utils/response-handler.util";
+import { modelResponseHandler } from "Utils/response-handler";
 
 
 const get = (modelObj, where, other = {}) => {
