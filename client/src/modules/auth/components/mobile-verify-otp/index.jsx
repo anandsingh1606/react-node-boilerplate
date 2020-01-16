@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Avatar, LinearProgress, Grid, Slide, IconButton } from "@material-ui/core";
+import {
+  Avatar, LinearProgress, Grid, Slide, IconButton
+} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import FormControl from "@material-ui/core/FormControl";
@@ -8,7 +10,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
 import Paper from "@material-ui/core/Paper";
 import Text from "CommonComponents/text";
-import withStyles from "@material-ui/core/styles/withStyles";
+import { makeStyles } from "@material-ui/core/styles";
 import { ValidatorForm } from "react-form-validator-core";
 
 import styles from "../../auth.css";
@@ -16,14 +18,17 @@ import InputField from "CommonComponents/input-field";
 import { fields } from "../../auth.model";
 
 const MobileVerifyOtp = (props) => {
-  const { classes, handleSubmit, inProgress, direction = "left", controls, isFormValid, formRef, updateControl, handleBack } = props;
+  const classes = makeStyles(styles)();
+  const {
+    handleSubmit, inProgress, direction = "left", controls, isFormValid, formRef, updateControl, handleBack
+  } = props;
 
   return (
     <Slide direction={direction} in timeout={direction ? 100 : 0}>
       <main className={classes.main}>
         <CssBaseline />
         <Grid className={classes.authCard}>
-          {<LinearProgress className={classes.progressCss} style={!inProgress ? { visibility: "hidden" } : { visibility: "visible" }} />}
+          <LinearProgress className={classes.progressCss} style={!inProgress ? { visibility: "hidden" } : { visibility: "visible" }} />
           <Paper className={classes.paper}>
             <IconButton onClick={handleBack} className={classes.paperNavIcon}>
               <KeyboardBackspaceIcon />
@@ -58,13 +63,14 @@ const MobileVerifyOtp = (props) => {
 
 MobileVerifyOtp.propTypes = {
   classes: PropTypes.object.isRequired,
-  handleSubmit: PropTypes.func,
-  inProgress: PropTypes.bool,
-  direction: PropTypes.string,
-  controls: PropTypes.object,
-  isFormValid: PropTypes.bool,
-  formRef: PropTypes.object,
-  updateControl: PropTypes.func,
-  view: PropTypes.object,
+  handleSubmit: PropTypes.func.isRequired,
+  inProgress: PropTypes.bool.isRequired,
+  direction: PropTypes.string.isRequired,
+  controls: PropTypes.object.isRequired,
+  isFormValid: PropTypes.bool.isRequired,
+  formRef: PropTypes.object.isRequired,
+  updateControl: PropTypes.func.isRequired,
+  view: PropTypes.object.isRequired,
 };
-export default withStyles(styles)(MobileVerifyOtp);
+
+export default MobileVerifyOtp;

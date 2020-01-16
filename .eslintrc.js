@@ -11,6 +11,7 @@ module.exports = {
     },
     "ignorePatterns": ["**/*test.js"],
     "rules": {
+        "react/jsx-props-no-spreading": "off",
         "max-len": [2, {"code": 140, "tabWidth": 4, "ignoreUrls": true}],
         "guard-for-in": "off",
         "no-cond-assign": ["error", "except-parens"],
