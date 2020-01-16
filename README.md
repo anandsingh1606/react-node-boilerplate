@@ -3,7 +3,7 @@
 
 A boilerplate with less configuration and more code. The intention of creating this boilerplate is to give a quick start in developing a react-node application with basic required dev utility and setup. 
 
-### Highlights
+## Highlights
 
 
 > React App 
@@ -60,9 +60,23 @@ React APP demo: https://anandgithub01.github.io/
   
 And we are ready, Now your react app will be running on `8001` and NodeJs server will be running on `8000`.
 
-### Note: This boilerplate is not production-ready, I have covered some of the required configurations but still we have few thing remaining. The main intention of putting it open source is to give people an option to quick development start. 
-  
-> ### Documentation and some other stuff are still pending... Working on it.
+#### Eslint setup (VsCode)
+1) Make sure you update `eslint.nodePath` with local eslint installed path, somthing like this  `"eslint.nodePath": "/<path-to-folder>/react-node-boilerplate/node_modules/eslint"`
 
-> ### This repo is currently on development for initial requirements. Open for getting any contribution. Thanks!!
+2) Check in any file, It should work fine. 
+
+
+
+#### Development guidelines
+
+I will create a detail document for this, but for now please refer auth module of client and server. Loader, API error handling in the client, App-level error handling in react app, and many other things are already in place. 
+
+
+
+
+### Note: This boilerplate is not production-ready, I have covered some of the required configurations but still we have few thing remaining. The main intention of putting it open source is to give people an option to quick development start. 
+
+### Documentation and some other stuff are still pending... Working on it.
+
+### This repo is currently on development for initial requirements. Open for getting any contribution. Thanks!!
 
