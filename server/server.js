@@ -41,5 +41,3 @@ app.use(bodyParser.json());
 
 // ANCHOR all api routes
 app.use("/api", dataSanitizer, routes);
-
-console.log("process.env.SMS_ACCOUNT_SID", process.env.SMS_ACCOUNT_SID);

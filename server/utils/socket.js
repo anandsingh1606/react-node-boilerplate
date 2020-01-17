@@ -7,7 +7,6 @@ let io = null;
 export const userConnection = {};
 
 const listenNewUser = (socket) => {
-  console.log("socket.request.headers", socket.request.headers);
   socket.on("userConnected", (data) => {
     const { token } = data;
     const { userLocale } = data;

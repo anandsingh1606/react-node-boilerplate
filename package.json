@@ -20,7 +20,15 @@
   "scripts": {
     "install": "(cd client && npm install) && (echo ==================Client Install Complete==========================) && (cd server && npm install)",
     "start": "concurrently \"cd client && npm run start:dev\"  \"cd server && npm start\"",
-    "setup-db": "cd server && npm run setup-db"
+    "setup-db": "cd server && npm run setup-db",
+    "pretest": "npm run lint:client && npm run lint:server",
+    "lint:client":"./node_modules/.bin/eslint --ext .jsx,.js client/src/ ",
+    "lint:server":"./node_modules/.bin/eslint --ext .jsx,.js client/src/ "
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run pretest"
+    }
   },
   "keywords": [
     "react",

@@ -25,12 +25,16 @@ const Login = () => {
   });
 
   const {
-    mappedState: { mobileSendOtpError, mobileSendOtpStart, token, mobileVerifyOtpStart },
+    mappedState: {
+      mobileSendOtpError, mobileSendOtpStart, token, mobileVerifyOtpStart
+    },
     dispatch,
   } = useRedux(mapState);
 
   // view handling
-  const { viewType, direction, inProgress, setView } = useMobileOtp({
+  const {
+    viewType, direction, inProgress, setView
+  } = useMobileOtp({
     sendStart: mobileSendOtpStart,
     sendError: mobileSendOtpError,
     verifyStart: mobileVerifyOtpStart,

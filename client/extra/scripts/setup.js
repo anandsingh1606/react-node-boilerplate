@@ -2,12 +2,12 @@ const { exec } = require("child_process");
 
 const preInstallationClean = () => {
   console.info("Pre Installation Cleaning....");
-  //shell.rm('-rf', './node_modules/');
+  // shell.rm('-rf', './node_modules/');
   console.info("....Pre Installation Done");
 };
 
 const installDependencies = () => {
-    exec("npm install", { stdio: "inherit", stderr: "inherit" });
+  exec("npm install", { stdio: "inherit", stderr: "inherit" });
 };
 
 (async () => {

@@ -2,6 +2,8 @@ const urlParams = new URLSearchParams(self.location.search);
 const cacheName = urlParams.get("cache_version");
 const env = urlParams.get("env");
 
+const test = " ";
+
 const fetchAndCache = (e) => {
   return fetch(e.request).then((res) => {
     const resClone = res.clone();

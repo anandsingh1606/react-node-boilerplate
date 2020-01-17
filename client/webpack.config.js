@@ -68,9 +68,9 @@ const modules = {
 const resolve = {
   modules: [path.resolve(`${__dirname}/src`), path.resolve(`${__dirname}/node_modules`)],
   extensions: [".jsx", ".js"],
-  /*=================================================================================
+  /*= ================================================================================
    ANCHOR alias to prevent nested dot imports, mostly for non module paths.
-  ===================================================================================*/
+  =================================================================================== */
   alias: {
     Components: path.resolve(__dirname, "src/components/"),
     CommonComponents: path.resolve(__dirname, "src/components/common/"),
@@ -87,13 +87,14 @@ const resolve = {
 };
 
 module.exports = (env = {}) => {
-  const mode = env.mode;
+  const { mode } = env;
 
   const isProduction = mode === "production";
 
   const envFilePath = isProduction ? path.resolve(__dirname, "./prod.env") : path.resolve(__dirname, "./dev.env");
   const fileEnv = dotenv.config({ path: envFilePath }).parsed;
   const envKeys = Object.keys(fileEnv).reduce((prev, next) => {
+    // eslint-disable-next-line no-param-reassign
     prev[`process.env.${next}`] = JSON.stringify(fileEnv[next]);
     return prev;
   }, {});
@@ -101,10 +102,10 @@ module.exports = (env = {}) => {
   envKeys["process.env.VERSION"] = JSON.stringify(process.env.npm_package_version);
 
   if (!isProduction && env.API_BASE_URL) {
-    /*=================================================================================
-    ANCHOR if we have multiple test env we can pass different API_BASE_URL.  
-   ===================================================================================*/
-    envKeys["API_BASE_URL"] = env.API_BASE_URL;
+    /*= =================================================================================
+    ANCHOR if we have multiple test env we can pass different API_BASE_URL.
+   =================================================================================== */
+    envKeys.API_BASE_URL = env.API_BASE_URL;
   }
 
   return {
@@ -130,6 +131,6 @@ module.exports = (env = {}) => {
       htmlPlugin,
     ],
     resolve: resolve,
-    devServer: { historyApiFallback: true, port: 8001},
+    devServer: { historyApiFallback: true, port: 8001 },
   };
 };

@@ -9,17 +9,16 @@ const SelectLanguage = () => {
     locale: state.common.locale,
   });
   const {
-    mappedState: {  locale },
+    mappedState: { locale },
     dispatch,
   } = useRedux(mapState);
 
 
-
   const handleValueChange = (e) => {
-    dispatch(setLocale( e.target.value));
+    dispatch(setLocale(e.target.value));
   };
 
- 
+
   return (
     <Select
       value={locale}

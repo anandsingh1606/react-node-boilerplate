@@ -9,7 +9,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Snackbar from "@material-ui/core/Snackbar";
 import SnackbarContent from "@material-ui/core/SnackbarContent";
 import WarningIcon from "@material-ui/icons/Warning";
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from "@material-ui/core/styles";
 
 import styles from "./styles";
 
@@ -55,12 +55,12 @@ const CustomSnackbar = (props) => {
         <SnackbarContent
           className={clsx(classes[variant])}
           aria-describedby="client-snackbar"
-          message={
+          message={(
             <span id="client-snackbar" className={classes.message}>
               <Icon className={clsx(classes.icon, classes.iconVariant)} />
               {message}
             </span>
-          }
+          )}
           action={[
             <IconButton key="close" aria-label="close" color="inherit" className={classes.close} onClick={handleClose}>
               <CloseIcon />

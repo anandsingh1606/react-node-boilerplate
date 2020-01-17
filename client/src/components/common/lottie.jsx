@@ -1,6 +1,6 @@
 import React from "react";
 import ReactLottie from "react-lottie";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 const Lottie = (props) => {
   const defaultOptions = {
@@ -10,7 +10,7 @@ const Lottie = (props) => {
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },
-    background:"rgb(255,255,255)"
+    background: "rgb(255,255,255)"
   };
 
   return (
@@ -19,7 +19,7 @@ const Lottie = (props) => {
         options={defaultOptions}
         style={{
           position: "absolute",
-          background:props.background,
+          background: props.background,
         }}
       />
     </>
@@ -29,6 +29,6 @@ const Lottie = (props) => {
 Lottie.propTypes = {
   background: PropTypes.string,
   animationData: PropTypes.object,
-}
+};
 
 export default Lottie;

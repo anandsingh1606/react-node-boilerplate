@@ -3,7 +3,9 @@ import { withRouter } from "react-router";
 import PropTypes from "prop-types";
 
 function RedirectDiv(props) {
-  const { history, redirectPath, children, componentProps } = props;
+  const {
+    history, redirectPath, children, componentProps
+  } = props;
   const onClick = () => {
     history.push(redirectPath);
   };
