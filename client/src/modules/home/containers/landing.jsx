@@ -8,6 +8,7 @@ import Snackbar from "Components/snackbar";
 import Text from "CommonComponents/text";
 
 const landing = () => {
+  const [socketMessage, setSocketMessage] = useState("");
   useEffect(() => {
     if (isUserLoggedIn()) {
       socket.emit("userConnected", { token: isUserLoggedIn(), userLocale: getCurrentLocale() });
@@ -17,7 +18,6 @@ const landing = () => {
     }
   }, []);
 
-  const [socketMessage, setSocketMessage] = useState("");
 
   if (isUserLoggedIn()) {
     return (

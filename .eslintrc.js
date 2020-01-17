@@ -9,7 +9,7 @@ module.exports = {
         "browser": true,
         "node": true,
     },
-    "ignorePatterns": ["**/*test.js"],
+    "ignorePatterns": ["**/*test.js","**/node_modules/"],
     "rules": {
         "react/jsx-props-no-spreading": "off",
         "max-len": [2, {"code": 140, "tabWidth": 4, "ignoreUrls": true}],

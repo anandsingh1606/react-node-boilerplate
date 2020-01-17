@@ -19,7 +19,10 @@ function RedirectDiv(props) {
 RedirectDiv.propTypes = {
   history: PropTypes.object.isRequired,
   redirectPath: PropTypes.string.isRequired,
-  children: PropTypes.any.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.node,
+  ]).isRequired,
   componentProps: PropTypes.object,
 };
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, test } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import { withRouter } from "react-router";
 import PropTypes from "prop-types";
 
@@ -20,7 +20,10 @@ function RedirectButton(props) {
 RedirectButton.propTypes = {
   history: PropTypes.object.isRequired,
   redirectPath: PropTypes.string.isRequired,
-  children: PropTypes.any.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.node,
+  ]).isRequired,
   componentProps: PropTypes.object,
 };
 

@@ -24,8 +24,8 @@ const SelectLanguage = () => {
       value={locale}
       disableUnderline
       onChange={handleValueChange}>
-      {localeList.map((localeItem, i) => (
-        <MenuItem key={i} value={localeItem.key}>
+      {localeList.map((localeItem) => (
+        <MenuItem key={localeItem.key} value={localeItem.key}>
           {localeItem.name}
         </MenuItem>
       ))}

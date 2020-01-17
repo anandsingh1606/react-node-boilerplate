@@ -73,11 +73,14 @@ class InputField extends ValidatorComponent {
 }
 
 InputField.propTypes = {
-  errorMessages: PropTypes.array,
-  validators: PropTypes.array,
+  errorMessages: PropTypes.arrayOf(PropTypes.string),
+  validators: PropTypes.arrayOf(PropTypes.string),
   withRequiredValidator: PropTypes.bool,
   handleChange: PropTypes.func,
-  prefix: PropTypes.any,
+  prefix: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.node,
+  ]),
 };
 
 export default InputField;

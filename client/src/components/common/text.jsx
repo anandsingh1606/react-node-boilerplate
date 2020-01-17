@@ -12,6 +12,11 @@ const Text = (props) => {
   );
 };
 
+Text.defaultProps = {
+  localeKey: "",
+  children: "",
+};
+
 Text.propTypes = {
   localeKey: PropTypes.string,
   children: PropTypes.node,

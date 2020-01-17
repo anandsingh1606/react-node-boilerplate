@@ -17,8 +17,8 @@ const SelectCountryCode = ({ value, handleChange, name }) => {
       renderValue={(value) => {
         return `+${getCountryCallingCode(value)}`;
       }}>
-      {getCountries().map((country, i) => (
-        <MenuItem key={i} value={country}>
+      {getCountries().map((country) => (
+        <MenuItem key={country} value={country}>
           {en[country]}
           {" "}
 +
@@ -31,9 +31,9 @@ const SelectCountryCode = ({ value, handleChange, name }) => {
 
 
 SelectCountryCode.propTypes = {
-  value: PropTypes.string,
-  handleChange: PropTypes.func,
-  name: PropTypes.string,
+  value: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 export default SelectCountryCode;
