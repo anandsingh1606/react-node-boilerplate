@@ -22,7 +22,7 @@
         "./server/src/models/*"
       ],
       "Db/*": [
-        "./server/src/config]/database.js"
+        "./server/src/config/database.js"
       ],
       "Config/*": [
         ".server/src/config/*"

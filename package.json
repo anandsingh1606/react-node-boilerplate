@@ -22,13 +22,16 @@
     "start": "concurrently \"cd client && npm run start:dev\"  \"cd server && npm start\"",
     "setup-db": "cd server && npm run setup-db",
     "pretest": "npm run lint:client && npm run lint:server",
-    "lint:client":"./node_modules/.bin/eslint --ext .jsx,.js client/src/",
-    "lint:server":"./node_modules/.bin/eslint --ext .js server/",
-    "lint:check-and-fix":"(./node_modules/.bin/eslint --ext .jsx,.js client/src/ --fix) && (./node_modules/.bin/eslint --ext .js server/ --fix)"
+    "lint:client": "./node_modules/.bin/eslint --ext .jsx,.js client/src/",
+    "lint:server": "./node_modules/.bin/eslint --ext .js server/",
+    "lint:check-and-fix": "(./node_modules/.bin/eslint --ext .jsx,.js client/src/ --fix) && (./node_modules/.bin/eslint --ext .js server/ --fix)",
+    "test": "npm run test:client && npm run test:server",
+    "test:client": "cd client && npm test",
+    "test:server": "cd server && npm test"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run pretest"
+      "pre-commit": "npm run test"
     }
   },
   "keywords": [
