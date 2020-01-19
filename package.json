@@ -28,7 +28,8 @@
     "lint:check-and-fix": "(./node_modules/.bin/eslint --ext .jsx,.js client/src/ --fix) && (./node_modules/.bin/eslint --ext .js server/ --fix)",
     "test": "npm run test:client && npm run test:server",
     "test:client": "cd client && npm test",
-    "test:server": "cd server && npm test"
+    "test:server": "cd server && npm test",
+    "build":"cd client && npm run build:prod"
   },
   "husky": {
     "hooks": {
