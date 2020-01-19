@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A scalable, maintainable, PWA react-redux boilerplate with socket, multi-language, code splitting and many other good stuff.",
   "main": "index.js",
+  "homepage": "/react-node-boilerplate",
   "scripts": {
     "start:dev": "webpack-dev-server --env.mode=development --open --hot",
     "build:prod": "webpack --env.mode=production --mode production",
