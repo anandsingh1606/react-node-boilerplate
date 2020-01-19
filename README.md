@@ -1,5 +1,8 @@
-# README #
+# React Node(Express) Boilerplate #
 
+[![Build Status](https://travis-ci.com/anandGithub01/react-node-boilerplate.svg?branch=master)](https://travis-ci.com/anandGithub01/react-node-boilerplate)
+![GitHub](https://img.shields.io/github/license/anandGithub01/react-node-boilerplate)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/anandGithub01/react-node-boilerplate)
 
 A boilerplate with less configuration and more code. The intention of creating this boilerplate is to give a quick start in developing a react-node application with basic required dev utility and setup. 
 
