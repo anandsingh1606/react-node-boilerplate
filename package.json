@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A simple, scalable and full featured react-node boilerplate",
   "main": "",
+  "homepage": "/react-node-boilerplate",
   "devDependencies": {
     "babel-eslint": "^10.0.3",
     "concurrently": "^5.0.2",
