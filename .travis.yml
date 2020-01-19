@@ -5,3 +5,14 @@ before_script:
 
 script: 
   - npm test
+  - npm run build
+
+
+deploy:
+  provider: pages
+  local_dir: client/dist
+  skip_cleanup: true
+  github_token: $DEPLOYMENT_TOKEN
+  keep_history: true
+  on:
+    branch: master  
