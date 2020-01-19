@@ -14,7 +14,7 @@ import { ValidatorForm } from "react-form-validator-core";
 import { fields } from "../../auth.model";
 
 import styles from "../../auth.css";
-import InputField from "CommonComponents/input-field";
+import InputField from "../../../../components/common/input-field";
 
 import SelectCountryCode from "Components/select-country-code";
 

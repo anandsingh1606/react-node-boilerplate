@@ -14,7 +14,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { ValidatorForm } from "react-form-validator-core";
 
 import styles from "../../auth.css";
-import InputField from "CommonComponents/input-field";
+import InputField from "../../../../components/common/input-field";
 import { fields } from "../../auth.model";
 
 const MobileVerifyOtp = (props) => {
