@@ -1,12 +1,11 @@
 import React from "react";
 import { Button } from "@material-ui/core";
-import { withRouter } from "react-router";
+import { useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 
 function RedirectButton(props) {
-  const {
-    history, redirectPath, children, componentProps
-  } = props;
+  const { redirectPath, children, componentProps } = props;
+  const history = useHistory();
   const onClick = () => {
     history.push(redirectPath);
   };
@@ -18,7 +17,6 @@ function RedirectButton(props) {
 }
 
 RedirectButton.propTypes = {
-  history: PropTypes.object.isRequired,
   redirectPath: PropTypes.string.isRequired,
   children: PropTypes.oneOfType([
     PropTypes.string,
@@ -30,4 +28,4 @@ RedirectButton.propTypes = {
 RedirectButton.defaultProps = {
   componentProps: {},
 };
-export default withRouter(RedirectButton);
+export default RedirectButton;

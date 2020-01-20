@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import { withRouter } from "react-router";
 import PropTypes from "prop-types";
 import { isUserLoggedIn, getLocaleText } from "Utils/common";
 
@@ -48,4 +47,4 @@ Header.propTypes = {
   location: PropTypes.object.isRequired,
 };
 
-export default withRouter(Header);
+export default Header;

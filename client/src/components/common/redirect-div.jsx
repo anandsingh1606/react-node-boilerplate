@@ -1,11 +1,12 @@
 import React from "react";
-import { withRouter } from "react-router";
+import { useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 
 function RedirectDiv(props) {
   const {
-    history, redirectPath, children, componentProps
+    redirectPath, children, componentProps
   } = props;
+  const history = useHistory();
   const onClick = () => {
     history.push(redirectPath);
   };
@@ -29,4 +30,4 @@ RedirectDiv.propTypes = {
 RedirectDiv.defaultProps = {
   componentProps: {},
 };
-export default withRouter(RedirectDiv);
+export default RedirectDiv;
