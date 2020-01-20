@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import PropTypes from "prop-types";
+import { useLocation } from "react-router-dom";
 import { isUserLoggedIn, getLocaleText } from "Utils/common";
 
 // core components
@@ -12,9 +12,9 @@ import RedirectButton from "CommonComponents/redirect-button";
 import RedirectDiv from "CommonComponents/redirect-div";
 import HeaderUserMenu from "Components/header-user-menu";
 
-function Header(props) {
+function Header() {
   const classes = makeStyles(headerStyle)();
-  const { location } = props;
+  const location = useLocation();
   let buttonText = getLocaleText("login");
   let redirectPath = "/auth/login";
   if (location.pathname === "/auth/login") {
@@ -43,8 +43,5 @@ function Header(props) {
 }
 
 Header.defaultProp = {};
-Header.propTypes = {
-  location: PropTypes.object.isRequired,
-};
 
 export default Header;
