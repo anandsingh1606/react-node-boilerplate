@@ -114,6 +114,7 @@ module.exports = (env = {}) => {
       path: path.resolve("dist"),
       filename: "bundle.js",
       chunkFilename: "[name].[chunkhash].js",
+      // TODO: handle this with env variable
       publicPath: "/react-node-boilerplate/",
     },
     module: modules,
