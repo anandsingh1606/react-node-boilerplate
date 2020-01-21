@@ -1,0 +1,21 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta http-equiv="X-UA-Compatible" content="ie=edge"/><meta name="theme-color" content="#2F3BA2"/><meta name="description" content="A simple, scalable, and complete boilerplate"/><link rel="apple-touch-icon" href="/images/app-icon-192x192.png"/><link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"/><link rel="manifest" href="/manifest.json"/><title>React Boilerplate</title><noscript>Please enable JavaScript to access this app!</noscript><script>if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("/sw.js?cache_version=1.0.0&env=production")
+            .then((reg) => {
+              console.log("SW registration successful!!", reg, reg.active);
+              reg.addEventListener("updatefound", function() {
+                // If updatefound is fired, it means that there's
+                // a new service worker being installed.
+                var installingWorker = reg.installing;
+                console.log("installingWorker",installingWorker);
+                window.location.reload();
+
+             
+              });
+            })
+            .catch((e) => {
+              console.log("SW registration failed:", e);
+            });
+        });
+      }</script></head><body><section id="index"></section><script type="text/javascript" src="/react-node-boilerplate/bundle.js"></script></body></html>
