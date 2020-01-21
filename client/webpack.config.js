@@ -114,7 +114,7 @@ module.exports = (env = {}) => {
       path: path.resolve("dist"),
       filename: "bundle.js",
       chunkFilename: "[name].[chunkhash].js",
-      publicPath: "/",
+      publicPath: envKeys.BASE_PATH ? envKeys.BASE_PATH : "/",
     },
     module: modules,
     optimization: {
