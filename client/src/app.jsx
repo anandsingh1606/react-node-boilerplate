@@ -8,8 +8,7 @@ import Snackbar from "Components/snackbar";
 import Header from "Components/header";
 import Footer from "Components/footer";
 import { redirect } from "Store/common.action";
-import Lottie from "CommonComponents/lottie";
-import * as loginSingup from "Animations/login-signup.json";
+import ParticlesBg from "particles-bg";
 import "Css/theme.css";
 import { styles } from "./styles";
 
@@ -53,7 +52,7 @@ const App = () => {
   const classes = makeStyles(styles)();
   return (
     <>
-      <Lottie animationData={loginSingup} background="rgb(6, 72, 127)" />
+      <ParticlesBg type="circle" bg />
       <main className={classes.wrapper}>
         {showError && <Snackbar message={showError} handleClose={handleSnackbarClose} variant="error" />}
         <Header className={classes.header} />
