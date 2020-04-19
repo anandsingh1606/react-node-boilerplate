@@ -39,7 +39,7 @@ A boilerplate with less configuration and more code. The intention of creating t
 
 ## DEMO 
 
-React APP demo: https://anandsingh1606.github.io/auth/login
+React APP demo: https://anandsingh1606.github.io
 
 
 ## SETUP 
