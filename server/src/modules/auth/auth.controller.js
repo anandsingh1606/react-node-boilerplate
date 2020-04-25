@@ -37,9 +37,15 @@ export const signupVerifyOtpController = (req, res) => {
     }
 
     // create user
-    return createUser({
-      mobileNumber, displayName, countryCode, otp
-    }, { res }).then(({ error: createUserError, result: createUserResult }) => {
+    return createUser(
+      {
+        mobileNumber,
+        displayName,
+        countryCode,
+        otp,
+      },
+      { res }
+    ).then(({ error: createUserError, result: createUserResult }) => {
       if (createUserError) {
         return arhObj.error(createUserError);
       }
@@ -80,15 +86,20 @@ export const loginWithOtpController = (req, res) => {
     }
     return UserNumber.get(
       { mobileNumber, countryCode, verified: true },
-      { res, include: [{ model: User, required: true, where: { active: true } }] }
+      {
+        res,
+        include: [{
+          model: User, required: true, as: "UserRef", where: { active: true }
+        }]
+      }
     ).then((userNumberResult) => {
       if (!userNumberResult) {
         return arhObj.error({ errorMessage: res.getLocaleText("authUserNotActiveMessage") });
       }
       return Otp.set({ status: "verified" }, { sendTo: `${countryCode}${mobileNumber}`, otp }, { res }).then(() => {
-        const userResult = userNumberResult.User;
+        const userResult = userNumberResult.UserRef;
         const responsePayload = {
-          token: getUserLoginToken({ user: userNumberResult.User }),
+          token: getUserLoginToken({ user: userNumberResult.UserRef }),
           displayName: userResult.displayName,
         };
         return arhObj.success(responsePayload);

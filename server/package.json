@@ -32,7 +32,8 @@
   "devDependencies": {
     "esm": "^3.2.22",
     "mocha": "^7.0.0",
-    "nodemon": "^1.19.4"
+    "nodemon": "^1.19.4",
+    "sequelize-cli": "^5.5.1"
   },
   "@std/esm": "js",
   "_moduleAliases": {

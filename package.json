@@ -1,9 +1,9 @@
 {
   "name": "react-node-boilerplate",
   "version": "1.0.0",
+  "homepage": "/",
   "description": "A simple, scalable and full featured react-node boilerplate",
   "main": "",
-  "homepage": "/react-node-boilerplate",
   "devDependencies": {
     "babel-eslint": "^10.0.3",
     "concurrently": "^5.0.2",
@@ -30,7 +30,7 @@
     "test": "npm run test:client && npm run test:server",
     "test:client": "cd client && npm test",
     "test:server": "cd server && npm test",
-    "build":"cd client && npm run build:prod"
+    "build": "cd client && npm run build:prod"
   },
   "husky": {
     "hooks": {
@@ -44,6 +44,5 @@
     "boilerplate"
   ],
   "author": "Kirti Anand Singh",
-  "license": "MIT",
-  "homepage": "https://bitbucket.org/anand_parihar/ollgood#readme"
+  "license": "MIT"
 }
