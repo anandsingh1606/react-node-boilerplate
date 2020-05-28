@@ -5,23 +5,19 @@ import { getApiPayload } from "Utils/common";
 import { signupMobileSendOtp, signupMobileVerifyOtp } from "../store/auth.action";
 import useRedux from "Hooks/use-redux";
 import useForm from "Hooks/use-form";
-import constants from "../store/auth.constants";
+import { actions } from "../store/auth.constants";
 import { mobileVerifyOtp, mobileSignupSendOtp } from "../auth.model";
 import useMobileOtp from "../auth.hooks";
 
 const Signup = () => {
   // Redux handling
-  const {
-    SIGNUP: {
-      MOBILE: { SEND_OTP, VERIFY_OTP },
-    },
-  } = constants;
+
 
   const mapState = (state) => ({
     token: state.auth.token,
-    signupMobileSendOtpError: state.common.apiErrors[SEND_OTP.KEY],
-    signupMobileSendOtpStart: state.common.apiRequests[SEND_OTP.KEY],
-    signupMobileVerifyOtpStart: state.common.apiRequests[VERIFY_OTP.KEY],
+    signupMobileSendOtpError: state.auth[actions.signupMobileSendOtpError],
+    signupMobileSendOtpStart: state.auth[actions.signupMobileSendOtpStart],
+    signupMobileVerifyOtpStart: state.auth[actions.signupMobileVerifyOtpError],
   });
 
   const {

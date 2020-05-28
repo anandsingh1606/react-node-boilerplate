@@ -12,7 +12,7 @@ const theme = createMuiTheme({
 
 export default theme;
 
-export const styles = {
+export const styles = () => ({
   wrapper: {
     height: "100vh",
     display: "flex",
@@ -25,4 +25,4 @@ export const styles = {
   footer: {
     height: "32px",
   },
-};
+});

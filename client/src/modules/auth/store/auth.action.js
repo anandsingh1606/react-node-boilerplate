@@ -1,7 +1,7 @@
-import constants from "./auth.constants";
+import { actions, moduleName } from "./auth.constants";
 import { storeUtils } from "Utils";
 
-const { LOGIN, SIGNUP, LOGOUT } = constants;
+
 const { apiPostDispatch } = storeUtils;
 
 export const loginMobileSendOtp = (params) => {
@@ -10,7 +10,8 @@ export const loginMobileSendOtp = (params) => {
     return apiPostDispatch(dispatch, {
       url: "/auth/login-send-otp",
       data: { mobileNumber, countryCode },
-      actionType: LOGIN.MOBILE.SEND_OTP,
+      actionType: actions.loginMobileSendOtp,
+      moduleName,
     }).then((response) => {
       return response;
     });
@@ -23,20 +24,21 @@ export const loginMobileVerifyOtp = (params) => {
     return apiPostDispatch(dispatch, {
       url: "/auth/login-verify-otp",
       data: { mobileNumber, countryCode, otp },
-      actionType: LOGIN.MOBILE.VERIFY_OTP,
+      actionType: actions.loginMobileVerifyOtp,
+      moduleName
     }).then((response) => {
       return response;
     });
   };
 };
 
-
 export const signupMobileSendOtp = (data) => {
   return (dispatch) => {
     return apiPostDispatch(dispatch, {
       url: "/auth/signup-send-otp",
       data,
-      actionType: SIGNUP.MOBILE.SEND_OTP,
+      actionType: actions.signupMobileSendOtp,
+      moduleName
     }).then((response) => {
       return response;
     });
@@ -48,7 +50,8 @@ export const signupMobileVerifyOtp = (data) => {
     return apiPostDispatch(dispatch, {
       url: "/auth/signup-verify-otp",
       data,
-      actionType: SIGNUP.MOBILE.VERIFY_OTP,
+      actionType: actions.signupMobileVerifyOtp,
+      moduleName
     }).then((response) => {
       return response;
     });
@@ -57,6 +60,6 @@ export const signupMobileVerifyOtp = (data) => {
 
 export const logout = () => {
   return {
-    type: LOGOUT
+    type: actions.logout,
   };
 };

@@ -43,7 +43,7 @@ class InputField extends ValidatorComponent {
       handleChange,
       prefix,
       label,
-      ...rest
+      ...restProps
     } = this.props;
 
     const otherProps = {};
@@ -65,7 +65,7 @@ class InputField extends ValidatorComponent {
             this.input = r;
           }}
           {...otherProps}
-          {...rest}
+          {...restProps}
         />
       </>
     );

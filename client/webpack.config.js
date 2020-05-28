@@ -83,6 +83,7 @@ const resolve = {
     Animations: path.resolve(__dirname, "src/assets/animations/"),
     Validations: path.resolve(__dirname, "src/validations/"),
     Locales: path.resolve(__dirname, "src/locales/"),
+    Configs: path.resolve(__dirname, "src/configs/"),
   },
 };
 

@@ -1,21 +1,23 @@
-import constants from "./auth.constants";
+import { actions, moduleName } from "./auth.constants";
 import { updateObj } from "Utils/common";
+import { apiReducer } from "Utils/store";
 
-const { LOGIN, SIGNUP, LOGOUT } = constants;
 
 const initState = {
   token: null,
 };
 
-const authReducer = (state = initState, { type, data: actionData }) => {
+const authReducer = (state = initState, action) => {
+  const { type, data: actionData } = action;
+  const updatedState = apiReducer(state, action, moduleName);
   switch (type) {
-    case SIGNUP.MOBILE.VERIFY_OTP.SUCCESS:
-    case LOGIN.MOBILE.VERIFY_OTP.SUCCESS:
-      return updateObj(state, { token: { $set: actionData.data.token } });
-    case LOGOUT:
-      return updateObj(state, { token: { $set: null } });
+    case `${actions.loginMobileSendOtp}Success`:
+    case `${actions.signupMobileVerifyOtp}Success`:
+      return updateObj(updatedState, { token: { $set: actionData.token } });
+    case actions.logout:
+      return updateObj(updatedState, { token: { $set: null } });
     default:
-      return { ...state };
+      return { ...updatedState };
   }
 };
 
