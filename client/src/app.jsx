@@ -11,7 +11,6 @@ import { redirect } from "Store/common.action";
 import ParticlesBg from "particles-bg";
 import "Css/theme.css";
 import { styles } from "./styles";
-import Text from "./test";
 
 const Auth = React.lazy(() => import("Modules/auth/auth.main"));
 const Home = React.lazy(() => import("Modules/home/home.main"));
@@ -19,24 +18,24 @@ const Home = React.lazy(() => import("Modules/home/home.main"));
 const App = () => {
   const history = useHistory();
   const mapState = (state) => ({
-    // apiErrors: state.common.apiErrors,
+    apiErrors: state.common.apiErrors,
     redirectUrl: state.common.redirectUrl,
     locale: state.common.locale,
   });
   const {
-    mappedState: { redirectUrl },
+    mappedState: { apiErrors, redirectUrl },
     dispatch,
   } = useRedux(mapState);
   const [showError, setShowError] = useState(null);
 
-  // const apiErrorsKeys = Object.keys(apiErrors);
-  // useEffect(() => {
-  //   if (apiErrorsKeys.length) {
-  //     setShowError(apiErrors[apiErrorsKeys[0]].errorMessage);
-  //   } else {
-  //     setShowError(null);
-  //   }
-  // }, [apiErrorsKeys.length]);
+  const apiErrorsKeys = Object.keys(apiErrors);
+  useEffect(() => {
+    if (apiErrorsKeys.length) {
+      setShowError(apiErrors[apiErrorsKeys[0]].errorMessage);
+    } else {
+      setShowError(null);
+    }
+  }, [apiErrorsKeys.length]);
 
   // handle global redirect
   useEffect(() => {
@@ -62,7 +61,6 @@ const App = () => {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/auth" component={Auth} />
-              <Route path="/test" component={Text} />
             </Switch>
           </Suspense>
         </div>

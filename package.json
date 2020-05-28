@@ -44,8 +44,5 @@
     "boilerplate"
   ],
   "author": "Kirti Anand Singh",
-  "license": "MIT",
-  "dependencies": {
-    "react-google-maps": "^9.4.5"
-  }
+  "license": "MIT"
 }

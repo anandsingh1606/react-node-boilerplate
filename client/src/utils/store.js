@@ -1,31 +1,25 @@
 import { apiGet, apiPost } from "./api";
 
-export const requestDispatch = ({ ACTION, moduleName }) => {
+export const requestDispatch = ({ ACTION }) => {
   return {
-    type: `${ACTION}Request`,
-    reduxAutoHandlerType: "request",
-    actionKey: ACTION,
-    moduleName,
+    type: ACTION.REQUEST,
+    actionKey: ACTION.KEY,
   };
 };
 
-export const errorDispatch = ({ ACTION, error, moduleName }) => {
+export const errorDispatch = ({ ACTION, error }) => {
   return {
-    type: `${ACTION}Error`,
-    reduxAutoHandlerType: "error",
+    type: ACTION.ERROR,
     error: error,
-    actionKey: ACTION,
-    moduleName
+    actionKey: ACTION.KEY,
   };
 };
 
-export const successDispatch = ({ ACTION, data, moduleName }) => {
+export const successDispatch = ({ ACTION, data }) => {
   return {
-    reduxAutoHandlerType: "success",
-    type: `${ACTION}Success`,
+    type: ACTION.SUCCESS,
     data: data,
-    actionKey: ACTION,
-    moduleName
+    actionKey: ACTION.KEY,
   };
 };
 
@@ -37,19 +31,18 @@ export const apiGetDispatch = (dispatch, params) => {
     successDispatchEnable = true,
     url,
     config,
-    moduleName
   } = params;
 
   if (requestDispatchEnable) {
-    dispatch(requestDispatch({ ACTION, moduleName }));
+    dispatch(requestDispatch({ ACTION }));
   }
   return apiGet(url, config).then((response) => {
     if (response.error && errorDispatchEnable) {
-      dispatch(errorDispatch({ ACTION, error: response.error, moduleName }));
+      dispatch(errorDispatch({ ACTION, error: response.error }));
       return response;
     }
     if (successDispatchEnable) {
-      dispatch(successDispatch({ ACTION, data: response.data.data, moduleName }));
+      dispatch(successDispatch({ ACTION, data: response.data }));
       return response;
     }
     return response;
@@ -65,51 +58,20 @@ export const apiPostDispatch = (dispatch, params) => {
     url,
     data,
     config,
-    moduleName
   } = params;
 
   if (requestDispatchEnable) {
-    dispatch(requestDispatch({ ACTION, moduleName }));
+    dispatch(requestDispatch({ ACTION }));
   }
   return apiPost(url, data, config).then((response) => {
     if (response.error && errorDispatchEnable) {
-      dispatch(errorDispatch({ ACTION, error: response.error, moduleName }));
+      dispatch(errorDispatch({ ACTION, error: response.error }));
       return response;
     }
     if (successDispatchEnable) {
-      dispatch(successDispatch({ ACTION, data: response.data.data, moduleName }));
+      dispatch(successDispatch({ ACTION, data: response.data }));
       return response;
     }
     return response;
   });
-};
-
-export const apiReducer = (state, action, module) => {
-  const {
-    actionKey, errorActionKey, moduleName: actionModule, reduxAutoHandlerType
-  } = action;
-  if (!actionKey || !actionModule || actionModule !== module || !reduxAutoHandlerType) {
-    return state;
-  }
-
-  switch (reduxAutoHandlerType) {
-    case "request":
-      return {
-        ...state,
-        [`${actionKey}Start`]: true,
-        [errorActionKey || `${actionKey}Error`]: null,
-        [actionKey]: null,
-      };
-    case "success":
-      return {
-        ...state,
-        [`${actionKey}Start`]: false,
-        [errorActionKey || `${actionKey}Error`]: null,
-        [actionKey]: action.data,
-      };
-    case "error":
-      return { ...state, [`${actionKey}Start`]: false, [errorActionKey || `${actionKey}Error`]: action.data };
-    default:
-      return state;
-  }
 };
