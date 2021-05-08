@@ -48,7 +48,7 @@
     "axios": "^0.19.0",
     "clsx": "^1.0.4",
     "immutability-helper": "^3.0.1",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "particles-bg": "^2.4.7",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
