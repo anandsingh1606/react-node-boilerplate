@@ -122,9 +122,10 @@ module.exports = (env = {}) => {
     },
     plugins: [
       new webpack.DefinePlugin(envKeys),
-      new CopyWebpackPlugin([{ from: "src/assets/images", to: "images/" }, "src/manifest.json", "src/sw.js", "src/robots.txt"]),
+      new CopyWebpackPlugin({
+        patterns: [{ from: "src/assets/images", to: "images/" }, "src/manifest.json", "src/sw.js", "src/robots.txt"],
+      }),
       new CompressionPlugin({
-        filename: "[path].gz[query]",
         algorithm: "gzip",
         test: /\.js$|\.css$/,
       }),
