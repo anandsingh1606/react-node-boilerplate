@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ajv": "^5.5.0",
+    "ajv": "^6.12.3",
     "bcryptjs": "*",
     "body-parser": "*",
     "cors": "^2.8.5",
